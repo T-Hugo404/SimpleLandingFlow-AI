@@ -10,6 +10,7 @@ A IA deve ler os arquivos na seguinte ordem:
 1. este arquivo (**instructions.md**)  
 2. `main-style.md`  
 3. `content.md`
+4. `fixes.md`(Deve ser lido apenas após interpretar todos os outros arquivos e o usuário solocitar explicitamente)
 
 Nenhuma ação deve ser executada antes de todos os arquivos serem interpretados.
 
@@ -23,6 +24,7 @@ A IA deve:
 - Priorizar sempre a hierarquia:
   `instructions.md` → `main-style.md` → `content.md`.
 - Em caso de dúvida, **perguntar antes de continuar**.  
+- O arquivo `fixes.md` deve ser interpretado apenas quando solicitado explicitamente pelo usuário.
 - Não criar conteúdo que contradiga qualquer regra presente nos arquivos.  
 - Aplicar sempre o estilo definido em `main-style.md`.  
 - Criar as páginas exatamente como especificado no `content.md`.  
@@ -49,6 +51,7 @@ A IA **não deve**:
 - Adicionar bibliotecas não especificadas.  
 - Modificar arquivos existentes sem instrução explícita.  
 - Criar camadas extras de complexidade desnecessária.
+- Criar qualquer página ou seção que não esteja prevista no `content.md`, a menos que seja solicitado explicitamente.
 
 ---
 
@@ -70,3 +73,9 @@ Quando a IA encontrar:
 - ausência de detalhes necessários,
 
 ela deve **solicitar esclarecimento antes de continuar**.
+
+## **8. Solicitações de correções**
+A IA deve **solicitar explicitamente** ao usuário antes de aplicar qualquer correção, alteração ou adaptação solicitada.
+  - As correçẽos devem ser solicitadas pelo usuário, explicitamente, e não devem ser aplicadas sem confirmação.
+  - Nem as alterações solicitadas no arquivo `fixes.md` nem pelo usuário diretamente devem querer as regras definidas nos arquivos anteriores, a menos que seja pedio explicitamente.
+  - A correção requisitada deve ser aplicada apenas na página ou seção específica. Não deve criar arquivos novos a menos que seja pedido explicitamente.
